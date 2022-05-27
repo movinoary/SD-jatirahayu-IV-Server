@@ -2,15 +2,13 @@ const express = require('express');
 const { auth } = require('../middleware/auth');
 const { addProfile } = require('../controllers/profile');
 const { register, login, logout } = require('../controllers/auth');
-const { uploadImgProfile } = require('../middleware/updaloadImage');
+const { uploadImgProfile, uploadImgGaleri, uploadImgBerita } = require('../middleware/updaloadImage');
 const { getUser, addUser, updateUser, deleteUser, getUserbyId } = require('../controllers/user');
 const { addVideo, getVideobyId, getAllVideo, updateVideo, deleteVideo } = require('../controllers/dbVideo');
 const { addAnggaran, getAllAnggaran, getAnggaranbyId, updateAnggaran, deleteAnggaran } = require('../controllers/dbAnggaran');
 const { addGaleri, getAllGaleri, getGaleribyId, updateGaleri, deleteGaleri, getGaleriKategori } = require('../controllers/dbGaleri');
 const { addBerita, getAllBerita, getBeritaKategori, getBeritabyId, updateBerita, deleteBerita } = require('../controllers/dbBerita');
 const { addDataSekolah, getAllDataSekolah, getDataSekolahbyId, updateDataSekolah, deleteDataSekolah } = require('../controllers/dbDataSekolah');
-
-
 
 const router = express.Router();
 
@@ -55,7 +53,7 @@ router.patch('/database/patch/video-youtube/:id', updateVideo);
 router.delete('/database/delete/video-youtube/:id', deleteVideo);
 
 // Router Database Galeri
-router.post('/database/post/galeri', addGaleri);
+router.post('/database/post/galeri',uploadImgGaleri("image"), addGaleri);
 router.get('/database/get/galeri', getAllGaleri);
 router.get('/database/get/galeri/:kategori', getGaleriKategori);
 router.get('/database/getbyid/galeri/:id', getGaleribyId);
@@ -63,7 +61,7 @@ router.patch('/database/patch/galeri/:id', updateGaleri);
 router.delete('/database/delete/galeri/:id', deleteGaleri);
 
 // Router Database berita
-router.post('/database/post/berita', addBerita);
+router.post('/database/post/berita',uploadImgBerita("image"), addBerita);
 router.get('/database/get/berita', getAllBerita);
 router.get('/database/get/berita/:kategori', getBeritaKategori);
 router.get('/database/getbyid/berita/:id', getBeritabyId);

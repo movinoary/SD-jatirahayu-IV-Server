@@ -2,20 +2,38 @@ const { berita } = require("../../models")
 
 exports.getAllBerita = async (req, res) => {
     try {
-        const data = await berita.findAll({
+        let data = await berita.findAll({
             attributes: {
                 exclude: ["createdAt", "updatedAt"],
             }
         });
-        res.json(data);
+
+        let FILE_PATH = "http://localhost:5000/public/berita/"
+        data = JSON.parse(JSON.stringify(data));
+
+        data = data.map((item) => {
+            return {
+                ...item,
+                image: FILE_PATH + item.image
+            }
+        });
+        
+        res.send({
+            status: "success",
+            data,
+        });
     } catch (error) {
-        res.json({ message: error.message });
-    }  
+        console.log(error)
+        res.send({
+            status: 'failed',
+            message: 'Server Error'
+        });
+    } 
 } 
 
 exports.getBeritaKategori = async (req, res) => {
     try {
-        const data = await berita.findAll({
+        let data = await berita.findAll({
             where: {
                 kategori: req.params.kategori
             },
@@ -23,15 +41,33 @@ exports.getBeritaKategori = async (req, res) => {
                 exclude: ["createdAt", "updatedAt"],
             }
         });
-        res.json(data);
+
+        let FILE_PATH = "http://localhost:5000/public/berita/"
+        data = JSON.parse(JSON.stringify(data));
+
+        data = data.map((item) => {
+            return {
+                ...item,
+                image: FILE_PATH + item.image
+            }
+        });
+        
+        res.send({
+            status: "success",
+            data,
+        });
     } catch (error) {
-        res.json({ message: error.message });
-    }  
+        console.log(error)
+        res.send({
+            status: 'failed',
+            message: 'Server Error'
+        });
+    } 
 } 
 
 exports.getBeritabyId = async (req, res) => {
     try {
-        const data = await berita.findAll({
+        let data = await berita.findAll({
             where: {
                 id: req.params.id
             },
@@ -39,21 +75,55 @@ exports.getBeritabyId = async (req, res) => {
                 exclude: ["createdAt", "updatedAt"],
             }
         });
-        res.json(data[0]);
+
+        let FILE_PATH = "http://localhost:5000/public/berita/"
+        data = JSON.parse(JSON.stringify(data));
+
+        data = data.map((item) => {
+            return {
+                ...item,
+                image: FILE_PATH + item.image
+            }
+        });
+        
+        res.send({
+            status: "success",
+            data,
+        });
     } catch (error) {
-        res.json({ message: error.message });
-    }  
+        console.log(error)
+        res.send({
+            status: 'failed',
+            message: 'Server Error'
+        });
+    } 
 }
 
 exports.addBerita = async (req, res) => {
     try {
         await berita.create(req.body);
-        res.json({
-            "message": "berita berhasil dibuat"
+        const { ...data } = req.body;
+
+        let newBerita = await berita.create({
+            ...data,
+            image: req.file.filename,
         });
+
+        newBerita = JSON.parse(JSON.stringify(newBerita));
+        res.send({
+            status: "Success",
+            data: {
+                ...newBerita,
+                image: 'http://localhost:5000/public/berita/' + newBerita.image
+            }
+        })
     } catch (error) {
-        res.json({ message: error.message });
-    }  
+        console.log(error);
+        res.send({
+            status: 'failed',
+            message: 'server error'
+        })
+    }
 }
 
 exports.updateBerita = async (req, res) => {
