@@ -29,10 +29,11 @@ tabel Database
 
     -	anggaran
         o	id_anggaran
-        o	 keterangan
+        o	keterangan
         o	icom
         o	jumlah_rp
         o	data_rp
+        npx sequelize-cli model:generate --name anggaran --attributes judul:string,icon:string,jumlahRp:string,dataRp:string  
 
     -	berita
         o	id_berita
@@ -44,21 +45,24 @@ tabel Database
         o	kategori
         npx sequelize-cli model:generate --name berita --attributes judul:string,image:string,tanggal:date,isiBerita:text,pencipta:string,kategori:string  
 
-    -	data_sekolah
+    -	dataSekolah
         o	id_data_sekolah
         o	keterangan
         o	jumlah
+        npx sequelize-cli model:generate --name dataSekolah --attributes judul:string,jumlah:string
 
     -	galeri
         o	id_galeri
         o	foto
         o	keterangan
         o	kategori
+        npx sequelize-cli model:generate --name galeri --attributes judul:string,image:string,kategori:string
 
     -	video
         o	id_video
         o	link_youtube
         o	judul
+        npx sequelize-cli model:generate --name video --attributes judul:string,link:string
 
 -	perangkat_pembelajaran
     o	id_perangkatPembelajaran
@@ -258,3 +262,33 @@ tabel Database
         o	k3
         o	k4
         o	k5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+npx sequelize init
+
+// buat bikin model di code
+npx sequelize-cli model:generate --name user --attributes name:string,email:String,password:String,status:string
+
+// buat bikin database
+npx sequelize db:migrate
+
+// buat ngapus semua
+npx sequelize db:migrate:undo:all
