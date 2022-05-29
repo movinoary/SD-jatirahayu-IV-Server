@@ -1,4 +1,4 @@
-const { kelas } = require("../../../models")
+const { kelas, tahunAjaran } = require("../../../models");
 
 exports.getAllKelas = async (req, res) => {
     try {
