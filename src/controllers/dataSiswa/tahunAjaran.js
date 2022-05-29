@@ -1,8 +1,17 @@
-const { tahunAjaran } = require("../../../models")
+const { tahunAjaran,kelas } = require("../../../models")
 
 exports.getAllTahunAjaran = async (req, res) => {
     try {
         const data = await tahunAjaran.findAll({
+            include: [
+                {
+                    model: kelas,
+                    as: "daftarKelas",
+                    attributes: {
+                        exclude: ["createdAt", "updatedAt"]
+                    }
+                }
+            ],
             attributes: {
                 exclude: ["createdAt", "updatedAt"],
             }
