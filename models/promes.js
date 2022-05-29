@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   promes.init({
+    tanggal: DataTypes.DATE,
     alokasiWaktu: DataTypes.STRING,
     keterangan: DataTypes.STRING,
     idSilabus: DataTypes.INTEGER

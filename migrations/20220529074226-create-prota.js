@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       pelaksanaan: {
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       },
       idSilabus: {
         type: Sequelize.INTEGER,

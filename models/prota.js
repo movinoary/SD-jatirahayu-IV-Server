@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   prota.init({
     hari: DataTypes.DATE,
     minggu: DataTypes.STRING,
-    pelaksanaan: DataTypes.STRING,
+    pelaksanaan: DataTypes.DATE,
     idSilabus: DataTypes.INTEGER
   }, {
     sequelize,
