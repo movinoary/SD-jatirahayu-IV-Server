@@ -11,6 +11,8 @@ const { addBerita, getAllBerita, getBeritaKategori, getBeritabyId, updateBerita,
 const { addDataSekolah, getAllDataSekolah, getDataSekolahbyId, updateDataSekolah, deleteDataSekolah } = require('../controllers/dbDataSekolah');
 const { addTahunAjaran, getAllTahunAjaran, getTahunAjaranbyId, updateTahunAjaran, deleteTahunAjaran } = require('../controllers/dataSiswa/tahunAjaran');
 const { addKelas, getAllKelas, getKelasbyId, updateKelas, deleteKelas } = require('../controllers/dataSiswa/kelas');
+const { addDataSiswa, getAllDataSiswa, getDataSiswabyId, updateDataSiswa, deleteDataSiswa } = require('../controllers/dataSiswa/dataSiswa');
+const { addDaftarNilai, getAllDaftarNilai, getDaftarNilaibyId, updateDaftarNilai, deleteDaftarNilai } = require('../controllers/dataSiswa/daftarNilai');
 
 const router = express.Router();
 
@@ -77,12 +79,27 @@ router.get('/database/getbyid/tahun-ajaran/:id', getTahunAjaranbyId);
 router.patch('/database/patch/tahun-ajaran/:id', updateTahunAjaran);
 router.delete('/database/delete/tahun-ajaran/:id', deleteTahunAjaran);
 
-// Router dataSiswa Tahun Ajaran
+// Router dataSiswa Kelass
 router.post('/database/post/kelas', addKelas);
 router.get('/database/get/kelas', getAllKelas);
 router.get('/database/getbyid/kelas/:id', getKelasbyId);
 router.patch('/database/patch/kelas/:id', updateKelas);
 router.delete('/database/delete/kelas/:id', deleteKelas);
+
+// Router dataSiswa Data Siswa
+router.post('/database/post/data-siswa', addDataSiswa);
+router.get('/database/get/data-siswa', getAllDataSiswa);
+router.get('/database/getbyid/data-siswa/:id', getDataSiswabyId);
+router.patch('/database/patch/data-siswa/:id', updateDataSiswa);
+router.delete('/database/delete/data-siswa/:id', deleteDataSiswa);
+
+// Router dataSiswa Daftar Nilai
+router.post('/database/post/daftar-nilai', addDaftarNilai);
+router.get('/database/get/daftar-nilai', getAllDaftarNilai);
+router.get('/database/getbyid/daftar-nilai/:id', getDaftarNilaibyId);
+router.patch('/database/patch/daftar-nilai/:id', updateDaftarNilai);
+router.delete('/database/delete/daftar-nilai/:id', deleteDaftarNilai);
+
 
 
 module.exports = router
