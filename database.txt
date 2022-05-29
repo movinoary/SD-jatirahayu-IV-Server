@@ -116,79 +116,6 @@ tabel Database
                 o	pat1
                 npx sequelize-cli model:generate --name daftarNilai --attributes uhp1:string,uhp2:string,uhp3:string,uhp4:string,uhk1:string,uhk2:string,uhk3:string,uhk4:string,pup1:string,pup2:string,pts1:string,pts2:string,pas1:string,pat1:string
 
--	daftar_nilai
-    o	id_daftarNilai
-    o	ulangan_harian
-    o	pekan_ulangan
-    o	penilaian_tengahSemester
-    o	penilaian_akhirSemester
-    o	penilaian_akhirTahun
-
-
-    -	ulangan_harian
-        o	id_ulanganHarian
-        o	p1
-        o	p2
-        o	p3
-        o	p4
-        o	p5
-        o	k1
-        o	k2
-        o	k3
-        o	k4
-        o	k5
-
-    -	pekan_ulangan
-        o	id_pekanUlangan
-        o	p1
-        o	p2
-        o	p3
-        o	p4
-        o	p5
-        o	k1
-        o	k2
-        o	k3
-        o	k4
-        o	k5
-
-    -	penilaian_tengahSemester
-        o	id_penilaianTengahSemster
-        o	p1
-        o	p2
-        o	p3
-        o	p4
-        o	p5
-        o	k1
-        o	k2
-        o	k3
-        o	k4
-        o	k5
-    
-   -	penilaian_akhirSemester
-        o	id_penilaianAkhirSemester
-        o	p1
-        o	p2
-        o	p3
-        o	p4
-        o	p5
-        o	k1
-        o	k2
-        o	k3
-        o	k4
-        o	k5
-
-    -	penilaian_akhirTahun
-        o	id_penilaianAkhirTahun
-        o	p1
-        o	p2
-        o	p3
-        o	p4
-        o	p5
-        o	k1
-        o	k2
-        o	k3
-        o	k4
-        o	k5
 
 
 -	perangkat_pembelajaran
@@ -199,92 +126,55 @@ tabel Database
     o	prota
     o	promes
 
-    -	silabus
-        o	id_silabus
-        o	mata_pelajaran
+    -	silabus (pertama)
+        o	id
         o	semester
-        o	kompotensi_dasar
+        o	kompetensiDasar
         o	indikator
-        o	materi_pembelajaran
-        o	kegiatan_pembelajaran
-        o	pendidikan_pengauatanKarakter
+        o	mataPelajaran
+        o	pendidikanPenguatan
         o	penilaian
-        o	alokasi_waktu
-        o	sumber_belajar
+        o	materiPembelajaran
+        o	sumberPembelajaran
+        o	pembelajaran
+        o	alokasiWaktu
+        o	tema
+        o	subtema
+        npx sequelize-cli model:generate --name silabus --attributes semester:string,kompetensiDasar:string,indikator:string,mataPelajaran:string,penilaian:string,materiPembelajaran:text,sumberPembelajaran:text,pembelajaran:text,alokasiWaktu:string,tema:string,subtema:string 
 
-    -	rpp
+    -	rpp (belom)
         o	id_rpp
         
-    -	kkm
+    -	kkm (kedua)
         o	id_kkm
-        o	mata_pelajaran
         o	kkm
+        o	idSilabus (mataPelajaran)
+        npx sequelize-cli model:generate --name silabus --attributes kkm:string,idSilabus:integer
 
-    -	prota
-        o	id_prota
-        o	tema
-        o	subtema
-        o	pembelajaran
-        o	alokasi_waktu
-        o	ket
 
-    -	promes
-        o	id_promes
-        o	tema
-        o	subtema
-        o	pembelajaran
-        o	alokasi_waktu
-        o	ket
+    -	promes (ketiga)
+        o	id
+        o	alokasiWaktu
+        o	keterangan
+        o	idSilabus (tema,subtema,pembelajaran)
+        npx sequelize-cli model:generate --name promes --attributes alokasiWaktu:string,keterangan:string,idSilabus:integer
 
--	bank_soal
-    o	id_bankSoal
-    o	agama_islam
-    o	pkn
-    o	bahasa_indonesia
-    o	matematika
-    o	ipa
-    o	ips
-    o	pjok
-    o	sbdp
-    o	bahasa_inggris
-    o	bahasa_sunda
 
-    -	agama_islam
-        o	id_agamaIslam
-        o	silabus
+    -	prota (keempat)
+        o	id
+        o	hari
+        o	minggu
+        o	pelaksanaan
+        o	idSilabus (tema,subtema,pembelajaran)
+        npx sequelize-cli model:generate --name prota --attributes hari:date,minggu:string,pelaksanaan:string,idSilabus:integer
 
-    -	pkn
-        o	id_pkn
-        o	silabus
+    -	bankSoal (kelima)
+        o	id
+        o	kelas
+        o	soal
+        o	pilihanJawaban
+        o	kunciJawaban
+        o	idSilabus(semester, mataPelajaran,tema,subtema,pembelajaran)
+        npx sequelize-cli model:generate --name silabus --attributes kkm:string,idSilabus:integer
 
-    -	bahasa_indonesia
-        o	id_bahasaIndonesia
-        o	silabus
 
-    -	matematika
-        o	id_matematika
-        o	silabus
-
-    -	ipa
-        o	id_ipa
-        o	silabus
-
-    -	ips
-        o	id_ips
-        o	silabus
-
-    -	pjok
-        o	id_pjok 
-        o	silabus
-
-    -	sbdp
-        o	id_sbdp
-        o	silabus
-
-    -	bahasa_inggris
-        o	id_bahasaInggris
-        o	silabus
-
-    -	bahasa_inggris
-        o	id_bahasaInggris
-        o	silabus

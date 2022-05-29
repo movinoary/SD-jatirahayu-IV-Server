@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   daftarNilai.init({
     idSiswa: DataTypes.INTEGER,
+    mataPelajaran: DataTypes.STRING,
     uhp1: DataTypes.STRING,
     uhp2: DataTypes.STRING,
     uhp3: DataTypes.STRING,

@@ -17,6 +17,9 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE"
       },
+      mataPelajaran: {
+        type: Sequelize.STRING
+      },
       uhp1: {
         type: Sequelize.STRING
       },

@@ -33,7 +33,8 @@ exports.getAllDaftarNilai = async (req, res) => {
             ],
             attributes: {
                 exclude: ["createdAt", "updatedAt"],
-            }
+            },
+            // limit : 1
         });
         res.json(data);
     } catch (error) {
