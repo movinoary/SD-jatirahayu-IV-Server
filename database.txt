@@ -140,7 +140,7 @@ tabel Database
         o	alokasiWaktu
         o	tema
         o	subtema
-        npx sequelize-cli model:generate --name silabus --attributes semester:string,kompetensiDasar:string,indikator:string,mataPelajaran:string,penilaian:string,materiPembelajaran:text,sumberPembelajaran:text,pembelajaran:text,alokasiWaktu:string,tema:string,subtema:string 
+        npx sequelize-cli model:generate --name silabus --attributes semester:string,kompetensiDasar:string,indikator:string,mataPelajaran:string,pendidikanPenguatan:string,penilaian:string,materiPembelajaran:text,sumberPembelajaran:text,pembelajaran:text,alokasiWaktu:string,tema:string,subtema:string 
 
     -	rpp (belom)
         o	id_rpp
@@ -149,7 +149,7 @@ tabel Database
         o	id_kkm
         o	kkm
         o	idSilabus (mataPelajaran)
-        npx sequelize-cli model:generate --name silabus --attributes kkm:string,idSilabus:integer
+        npx sequelize-cli model:generate --name kkm --attributes kkm:string,idSilabus:integer
 
 
     -	promes (ketiga)
@@ -170,11 +170,11 @@ tabel Database
 
     -	bankSoal (kelima)
         o	id
-        o	kelas
         o	soal
         o	pilihanJawaban
         o	kunciJawaban
+        o	idKelas (kelas)
         o	idSilabus(semester, mataPelajaran,tema,subtema,pembelajaran)
-        npx sequelize-cli model:generate --name silabus --attributes kkm:string,idSilabus:integer
+        npx sequelize-cli model:generate --name bankSoal --attributes soal:text,pilihanJawaban:text,kunciJawaban:text,idkelas:integer,idSilabus:integer
 
 
