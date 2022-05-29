@@ -1,4 +1,4 @@
-const { dataSiswa } = require("../../../models")
+const { dataSiswa,daftarNilai } = require("../../../models")
 
 exports.getAllDataSiswa = async (req, res) => {
     try {

@@ -1,8 +1,36 @@
-const { daftarNilai } = require("../../../models")
+const { daftarNilai, dataSiswa } = require("../../../models")
 
 exports.getAllDaftarNilai = async (req, res) => {
     try {
         const data = await daftarNilai.findAll({
+            include: [
+                {
+                    model: dataSiswa,
+                    as: "namaSiswa",
+                    attributes: {
+                        exclude: [
+                            "id",
+                            "nik", 
+                            "tempatLahir", 
+                            "agama", 
+                            "alamat", 
+                            "namaAyah", 
+                            "pendidikanAyah", 
+                            "pekerjaanAyah", 
+                            "namaIbu", 
+                            "pendidikanIbu", 
+                            "pekerjaanIbu", 
+                            "namaWali", 
+                            "pendidikanWali", 
+                            "pekerjaanWali", 
+                            "idKelas", 
+                            "idDaftarNilai", 
+                            "createdAt", 
+                            "updatedAt",
+                        ]
+                    }
+                }
+            ],
             attributes: {
                 exclude: ["createdAt", "updatedAt"],
             }
@@ -15,6 +43,34 @@ exports.getAllDaftarNilai = async (req, res) => {
 exports.getDaftarNilaibyId = async (req, res) => {
     try {
         const data = await daftarNilai.findAll({
+            include: [
+                {
+                    model: dataSiswa,
+                    as: "namaSiswa",
+                    attributes: {
+                        exclude: [
+                            "id",
+                            "nik", 
+                            "tempatLahir", 
+                            "agama", 
+                            "alamat", 
+                            "namaAyah", 
+                            "pendidikanAyah", 
+                            "pekerjaanAyah", 
+                            "namaIbu", 
+                            "pendidikanIbu", 
+                            "pekerjaanIbu", 
+                            "namaWali", 
+                            "pendidikanWali", 
+                            "pekerjaanWali", 
+                            "idKelas", 
+                            "idDaftarNilai", 
+                            "createdAt", 
+                            "updatedAt",
+                        ]
+                    }
+                }
+            ],
             where: {
                 id: req.params.id
             },

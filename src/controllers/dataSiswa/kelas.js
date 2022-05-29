@@ -1,10 +1,19 @@
-const { kelas, tahunAjaran } = require("../../../models");
+const { kelas, dataSiswa } = require("../../../models");
 
 exports.getAllKelas = async (req, res) => {
     try {
         const data = await kelas.findAll({
+            include: [
+                {
+                    model: dataSiswa,
+                    as: "daftarSiswa",
+                    attributes: {
+                        exclude: ["createdAt", "updatedAt", "idKelas", "idDaftarNilai"]
+                    }
+                }
+            ],
             attributes: {
-                exclude: ["createdAt", "updatedAt"],
+                exclude: ["createdAt", "updatedAt", "idTahunAjaran"],
             }
         });
         res.json(data);
