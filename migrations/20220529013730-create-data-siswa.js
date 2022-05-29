@@ -62,15 +62,6 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE"
       },
-      idDaftarNilai: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "daftarNilais",
-          key: "id"
-        },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE"
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

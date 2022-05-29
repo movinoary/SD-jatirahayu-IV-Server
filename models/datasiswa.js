@@ -30,7 +30,6 @@ module.exports = (sequelize, DataTypes) => {
     pendidikanWali: DataTypes.STRING,
     pekerjaanWali: DataTypes.STRING,
     idKelas: DataTypes.INTEGER,
-    idDaftarNilai: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'dataSiswa',

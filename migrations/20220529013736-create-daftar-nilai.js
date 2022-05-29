@@ -8,6 +8,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      idSiswa:{
+        type: Sequelize.INTEGER,
+        references: {
+          model: "dataSiswas",
+          key: "id"
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE"
+      },
       uhp1: {
         type: Sequelize.STRING
       },
