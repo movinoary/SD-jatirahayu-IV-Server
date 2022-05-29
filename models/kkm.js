@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   kkm.init({
     kkm: DataTypes.STRING,
-    idSilabus: DataTypes.INTEGER
+    idMataPelajaran: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'kkm',

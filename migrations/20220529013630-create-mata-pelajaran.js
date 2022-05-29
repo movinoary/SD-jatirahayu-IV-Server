@@ -1,24 +1,15 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('kkms', {
+    await queryInterface.createTable('mataPelajarans', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      kkm: {
-        type: Sequelize.STRING
-      },
-      idMataPelajaran: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "mataPelajarans",
-          key: "id"
-        },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE"
+      nama: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +22,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('kkms');
+    await queryInterface.dropTable('mataPelajarans');
   }
 };

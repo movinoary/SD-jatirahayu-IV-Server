@@ -142,8 +142,7 @@ tabel Database
         o	subtema
         npx sequelize-cli model:generate --name silabus --attributes semester:string,kompetensiDasar:string,indikator:string,mataPelajaran:string,pendidikanPenguatan:string,penilaian:string,materiPembelajaran:text,sumberPembelajaran:text,pembelajaran:text,alokasiWaktu:string,tema:string,subtema:string 
 
-    -	rpp (belom)
-        o	id_rpp
+
         
     -	kkm (kedua)
         o	id_kkm
@@ -176,5 +175,7 @@ tabel Database
         o	idKelas (kelas)
         o	idSilabus(semester, mataPelajaran,tema,subtema,pembelajaran)
         npx sequelize-cli model:generate --name bankSoal --attributes soal:text,pilihanJawaban:text,kunciJawaban:text,idkelas:integer,idSilabus:integer
-
+        
+    -	rpp (belom)
+        o	id_rpp
 

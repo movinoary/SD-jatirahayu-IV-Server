@@ -11,13 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
     }
   }
   silabus.init({
+    idMataPelajaran: DataTypes.INTEGER,
     semester: DataTypes.STRING,
     kompetensiDasar: DataTypes.STRING,
     indikator: DataTypes.STRING,
-    mataPelajaran: DataTypes.STRING,
     pendidikanPenguatan: DataTypes.STRING,
     penilaian: DataTypes.STRING,
     materiPembelajaran: DataTypes.TEXT,

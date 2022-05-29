@@ -11,6 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      prota.belongsTo(models.silabus, {
+        as: "silabus",
+        foreignKey: {
+          name: "idSilabus",
+        },
+      });
     }
   }
   prota.init({

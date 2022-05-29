@@ -17,8 +17,14 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE"
       },
-      mataPelajaran: {
-        type: Sequelize.STRING
+      idMataPelajaran: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "mataPelajarans",
+          key: "id"
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE"
       },
       uhp1: {
         type: Sequelize.STRING

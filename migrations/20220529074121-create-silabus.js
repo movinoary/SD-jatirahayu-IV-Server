@@ -17,8 +17,14 @@ module.exports = {
       indikator: {
         type: Sequelize.STRING
       },
-      mataPelajaran: {
-        type: Sequelize.STRING
+      idMataPelajaran: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "mataPelajarans",
+          key: "id"
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE"
       },
       pendidikanPenguatan: {
         type: Sequelize.STRING
