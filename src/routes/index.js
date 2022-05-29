@@ -9,6 +9,8 @@ const { addAnggaran, getAllAnggaran, getAnggaranbyId, updateAnggaran, deleteAngg
 const { addGaleri, getAllGaleri, getGaleribyId, updateGaleri, deleteGaleri, getGaleriKategori } = require('../controllers/dbGaleri');
 const { addBerita, getAllBerita, getBeritaKategori, getBeritabyId, updateBerita, deleteBerita } = require('../controllers/dbBerita');
 const { addDataSekolah, getAllDataSekolah, getDataSekolahbyId, updateDataSekolah, deleteDataSekolah } = require('../controllers/dbDataSekolah');
+const { addTahunAjaran, getAllTahunAjaran, getTahunAjaranbyId, updateTahunAjaran, deleteTahunAjaran } = require('../controllers/dataSiswa/tahunAjaran');
+const { addKelas, getAllKelas, getKelasbyId, updateKelas, deleteKelas } = require('../controllers/dataSiswa/kelas');
 
 const router = express.Router();
 
@@ -67,6 +69,20 @@ router.get('/database/get/berita/:kategori', getBeritaKategori);
 router.get('/database/getbyid/berita/:id', getBeritabyId);
 router.patch('/database/patch/berita/:id', updateBerita);
 router.delete('/database/delete/berita/:id', deleteBerita);
+
+// Router dataSiswa Tahun Ajaran
+router.post('/database/post/tahun-ajaran', addTahunAjaran);
+router.get('/database/get/tahun-ajaran', getAllTahunAjaran);
+router.get('/database/getbyid/tahun-ajaran/:id', getTahunAjaranbyId);
+router.patch('/database/patch/tahun-ajaran/:id', updateTahunAjaran);
+router.delete('/database/delete/tahun-ajaran/:id', deleteTahunAjaran);
+
+// Router dataSiswa Tahun Ajaran
+router.post('/database/post/kelas', addKelas);
+router.get('/database/get/kelas', getAllKelas);
+router.get('/database/getbyid/kelas/:id', getKelasbyId);
+router.patch('/database/patch/kelas/:id', updateKelas);
+router.delete('/database/delete/kelas/:id', deleteKelas);
 
 
 module.exports = router
