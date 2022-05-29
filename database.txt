@@ -64,6 +64,133 @@ tabel Database
         o	judul
         npx sequelize-cli model:generate --name video --attributes judul:string,link:string
 
+-	tahunAjaran (1)
+    o	id
+    o	tahunAjaran
+    npx sequelize-cli model:generate --name tahunAjaran --attributes tahun:string
+
+    -	kelas (2)
+        o	id
+        o	kelas
+        o	idTahunAjaran
+        npx sequelize-cli model:generate --name kelas --attributes kelas:string,idTahunAjaran:integer
+
+        -	dataSiswa (4)
+            o	id
+            o	nama
+            o	nik
+            o	tempatLahir
+            o	tanggalLahir
+            o	jenisKelamin
+            o	agama
+            o	alamat
+            o	namaAyah
+            o	pendidikanAyah
+            o	pekerjaanAyah
+            o	namaIbu
+            o	pendidikanIbu
+            o	pekerjaanIbu
+            o	namaWali
+            o	pendidikanWali
+            o	pekerjaanWali
+            o	idKelas
+            o	idDaftarNilai
+            npx sequelize-cli model:generate --name dataSiswa --attributes nama:string,nik:string,nik:string,tempatLahir:string,agama:string,alamat:text,namaAyah:string,pendidikanAyah:string,pekerjaanAyah:string,namaIbu:string,pendidikanIbu:string,pekerjaanIbu:string,namaWali:string,pendidikanWali:string,pekerjaanWali:string,idKelas:integer,idDaftarNilai:integer
+
+    
+            -	daftarNilai (3)
+                o	id
+                o	uhp1
+                o	uhp2
+                o	uhp3
+                o	uhp4
+                o	uhk1
+                o	uhk2
+                o	uhk3
+                o	uhk4
+                o	pup1
+                o	pup2
+                o	pts1
+                o	pts2
+                o	pas1
+                o	pat1
+                npx sequelize-cli model:generate --name daftarNilai --attributes uhp1:string,uhp2:string,uhp3:string,uhp4:string,uhk1:string,uhk2:string,uhk3:string,uhk4:string,pup1:string,pup2:string,pts1:string,pts2:string,pas1:string,pat1:string
+
+-	daftar_nilai
+    o	id_daftarNilai
+    o	ulangan_harian
+    o	pekan_ulangan
+    o	penilaian_tengahSemester
+    o	penilaian_akhirSemester
+    o	penilaian_akhirTahun
+
+
+    -	ulangan_harian
+        o	id_ulanganHarian
+        o	p1
+        o	p2
+        o	p3
+        o	p4
+        o	p5
+        o	k1
+        o	k2
+        o	k3
+        o	k4
+        o	k5
+
+    -	pekan_ulangan
+        o	id_pekanUlangan
+        o	p1
+        o	p2
+        o	p3
+        o	p4
+        o	p5
+        o	k1
+        o	k2
+        o	k3
+        o	k4
+        o	k5
+
+    -	penilaian_tengahSemester
+        o	id_penilaianTengahSemster
+        o	p1
+        o	p2
+        o	p3
+        o	p4
+        o	p5
+        o	k1
+        o	k2
+        o	k3
+        o	k4
+        o	k5
+    
+   -	penilaian_akhirSemester
+        o	id_penilaianAkhirSemester
+        o	p1
+        o	p2
+        o	p3
+        o	p4
+        o	p5
+        o	k1
+        o	k2
+        o	k3
+        o	k4
+        o	k5
+
+    -	penilaian_akhirTahun
+        o	id_penilaianAkhirTahun
+        o	p1
+        o	p2
+        o	p3
+        o	p4
+        o	p5
+        o	k1
+        o	k2
+        o	k3
+        o	k4
+        o	k5
+
+
 -	perangkat_pembelajaran
     o	id_perangkatPembelajaran
     o	silabus
@@ -161,134 +288,3 @@ tabel Database
     -	bahasa_inggris
         o	id_bahasaInggris
         o	silabus
-
--	data_siswa
-    o	id_dataSiswa
-    o	kelas_1
-    o	kelas_2
-    o	kelas_3
-    o	kelas_4
-    o	kelas_5
-    o	kelas_6
-
-    -	kelas_1
-        o	id_kelas1
-    
-    -	kelas_2
-        o	id_kelas2
-
-    -	kelas_3
-        o	id_kelas3
-
-    -	kelas_4
-        o	id_kelas4
-
-    -	kelas_5
-        o	id_kelas5
-
-    -	kelas_6
-        o	id_kelas6
-
--	daftar_nilai
-    o	id_daftarNilai
-    o	ulangan_harian
-    o	pekan_ulangan
-    o	penilaian_tengahSemester
-    o	penilaian_akhirSemester
-    o	penilaian_akhirTahun
-
-
-    -	ulangan_harian
-        o	id_ulanganHarian
-        o	p1
-        o	p2
-        o	p3
-        o	p4
-        o	p5
-        o	k1
-        o	k2
-        o	k3
-        o	k4
-        o	k5
-
-    -	pekan_ulangan
-        o	id_pekanUlangan
-        o	p1
-        o	p2
-        o	p3
-        o	p4
-        o	p5
-        o	k1
-        o	k2
-        o	k3
-        o	k4
-        o	k5
-
-    -	penilaian_tengahSemester
-        o	id_penilaianTengahSemster
-        o	p1
-        o	p2
-        o	p3
-        o	p4
-        o	p5
-        o	k1
-        o	k2
-        o	k3
-        o	k4
-        o	k5
-    
-   -	penilaian_akhirSemester
-        o	id_penilaianAkhirSemester
-        o	p1
-        o	p2
-        o	p3
-        o	p4
-        o	p5
-        o	k1
-        o	k2
-        o	k3
-        o	k4
-        o	k5
-
-    -	penilaian_akhirTahun
-        o	id_penilaianAkhirTahun
-        o	p1
-        o	p2
-        o	p3
-        o	p4
-        o	p5
-        o	k1
-        o	k2
-        o	k3
-        o	k4
-        o	k5
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-npx sequelize init
-
-// buat bikin model di code
-npx sequelize-cli model:generate --name user --attributes name:string,email:String,password:String,status:string
-
-// buat bikin database
-npx sequelize db:migrate
-
-// buat ngapus semua
-npx sequelize db:migrate:undo:all
